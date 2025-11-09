@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"> <!-- Suporte para acentuação -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para celular -->
+    <title>Lanchonete Escolar</title>
+    <link rel="stylesheet" href="style.css"> <!-- Conecta o CSS -->
+</head>
+
+<body>
+    <!-- Cabeçalho com o nome da lanchonete -->
+    <header>
+        <h1>Lanchonete da Escola</h1>
+    </header>
+
+    <main>
+        <!-- Seção de alimentos -->
+        <section class="cardapio">
+            <h2>Alimentos</h2>
+            <ul>
+                <li>
+                    <strong>Pão de queijo</strong> - R$ 3,00
+                    <button onclick="adicionarItem('Pão de queijo', 3.00)">Adicionar</button>
+                </li>
+                <li>
+                    <strong>Sanduíche</strong> - R$ 6,00
+                    <button onclick="adicionarItem('Sanduíche', 6.00)">Adicionar</button>
+                </li>
+                <li>
+                    <strong>Bolo de chocolate</strong> - R$ 5,00
+                    <button onclick="adicionarItem('Bolo de chocolate', 5.00)">Adicionar</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Seção de bebidas -->
+        <section class="cardapio">
+            <h2>Bebidas</h2>
+            <ul>
+                <li>
+                    <strong>Suco natural</strong> - R$ 4,50
+                    <button onclick="adicionarItem('Suco natural', 4.50)">Adicionar</button>
+                </li>
+                <li>
+                    <strong>Refrigerante</strong> - R$ 5,00
+                    <button onclick="adicionarItem('Refrigerante', 5.00)">Adicionar</button>
+                </li>
+                <li>
+                    <strong>Água mineral</strong> - R$ 2,50
+                    <button onclick="adicionarItem('Água mineral', 2.50)">Adicionar</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Seção do pedido -->
+        <section class="pedido">
+            <h2>Seu Pedido</h2>
+            <ul id="lista-pedido"></ul> <!-- Lista dinâmica dos itens adicionados -->
+            <p><strong>Total:</strong> R$ <span id="total">0.00</span></p> <!-- Valor total do pedido -->
+
+            <!-- Botão para finalizar a compra -->
+            <button id="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+            <!-- Esse botão chama a função finalizarCompra() quando clicado -->
+        </section>
+    </main>
+
+    <!-- Rodapé com mensagem simpática -->
+    <footer>
+        <p>Feito com carinho pelos alunos da escola 💙</p>
+    </footer>
+
+    <!-- Script JavaScript para interatividade -->
+    <script>
+        let total = 0; // Valor total do pedido
+        const listaPedido = document.getElementById('lista-pedido'); // Lista onde os itens aparecem
+        const totalSpan = document.getElementById('total'); // Elemento que mostra o total
+
+        // Função que adiciona um item ao pedido
+        function adicionarItem(nome, preco) {
+            const item = document.createElement('li'); // Cria um novo item
+            item.textContent = ${nome} - R$ ${preco.toFixed(2)}; // Define o texto do item
+            listaPedido.appendChild(item); // Adiciona à lista
+            total += preco; // Atualiza o total
+            totalSpan.textContent = total.toFixed(2); // Mostra o novo total
+        }
+
+        // Função que finaliza a compra
+        function finalizarCompra() {
+            if (total === 0) {
+                alert("Você ainda não adicionou nenhum item ao pedido."); // Alerta se o pedido estiver vazio
+            } else {
+                alert(Compra finalizada! Total: R$ ${total.toFixed(2)}\nObrigado pela preferência!);
+                // Aqui você pode adicionar lógica para limpar o pedido ou enviar os dados
+                listaPedido.innerHTML = ""; // Limpa a lista de itens
+                total = 0; // Zera o total
+                totalSpan.textContent = "0.00"; // Atualiza o total na tela
+            }
+        }
+    </script>
+</body>
+
+</html>

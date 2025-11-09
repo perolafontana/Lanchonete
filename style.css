@@ -1,0 +1,92 @@
+/* Estilo geral da página */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    /* Fonte moderna e legível */
+    background-color: #f0f8ff;
+    /* Fundo azul claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho com cor de fundo e texto centralizado */
+header {
+    background-color: #2e8b57;
+    /* Verde escuro */
+    color: white;
+    /* Texto branco */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Área principal com layout flexível */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite quebrar linha em telas menores */
+    justify-content: space-around;
+    /* Espaçamento entre seções */
+    padding: 20px;
+}
+
+/* Estilo das seções de cardápio e pedido */
+.cardapio,
+.pedido {
+    background-color: #fff;
+    /* Fundo branco */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    width: 45%;
+    /* Largura de cada bloco */
+    min-width: 300px;
+    /* Tamanho mínimo para telas pequenas */
+    margin-bottom: 20px;
+    /* Espaço entre blocos */
+}
+
+/* Remove marcadores das listas */
+.cardapio ul,
+.pedido ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo dos itens da lista */
+.cardapio li,
+.pedido li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    /* Linha separadora */
+    display: flex;
+    justify-content: space-between;
+    /* Nome à esquerda, botão à direita */
+    align-items: center;
+}
+
+/* Botões de adicionar */
+button {
+    background-color: #2e8b57;
+    /* Verde escuro */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse no botão */
+button:hover {
+    background-color: #246b45;
+    /* Verde mais escuro */
+}
+
+/* Rodapé com estilo simples */
+footer {
+    background-color: #eee;
+    /* Cinza claro */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
